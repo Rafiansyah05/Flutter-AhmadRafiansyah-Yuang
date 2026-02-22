@@ -10,6 +10,7 @@ import '../core/services/supabase_service.dart';
 import '../models/quiz_model.dart';
 import '../models/quiz_result_model.dart';
 import '../models/question_model.dart';
+import 'package:syncfusion_flutter_pdf/pdf.dart';
 
 class QuizController extends GetxController {
   // Config

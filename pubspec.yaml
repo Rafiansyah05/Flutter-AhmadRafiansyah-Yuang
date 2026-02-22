@@ -28,7 +28,7 @@ dependencies:
   dio: ^5.4.0
 
   # File Picker (PDF)
-  file_picker: ^6.1.1
+  file_picker: ^8.0.0
 
   # Google Fonts
   google_fonts: ^6.1.0
