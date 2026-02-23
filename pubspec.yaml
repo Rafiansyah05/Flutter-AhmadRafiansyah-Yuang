@@ -1,5 +1,5 @@
-name: thequis
-description: TheQuis - AI-powered Quiz Generator App
+name: yuang
+description: Yuang - Aplikasi Tracking Pengeluaran
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -7,57 +7,19 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  syncfusion_flutter_pdf: ^24.1.41
-
   flutter:
     sdk: flutter
-
-  # Supabase
-  supabase_flutter: ^2.3.0
-
-  # State Management
   get: ^4.6.6
-
-  # Local Storage
   shared_preferences: ^2.2.2
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
-
-  # HTTP & API
-  http: ^1.2.0
-  dio: ^5.4.0
-
-  # File Picker (PDF)
-  file_picker: ^8.0.0
-
-  # Google Fonts
-  google_fonts: ^6.1.0
-
-  # Image & Share
-  screenshot: ^2.1.0
-  share_plus: ^7.2.1
-  path_provider: ^2.1.2
-
-  # UI
-  flutter_animate: ^4.3.0
-  shimmer: ^3.0.0
-  lottie: ^3.0.0
-  percent_indicator: ^4.2.3
-  fl_chart: ^0.67.0
-
-  # Utils
-  uuid: ^4.3.3
   intl: ^0.19.0
+  cupertino_icons: ^1.0.6
+  fl_chart: ^0.68.0
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  hive_generator: ^2.0.1
-  build_runner: ^2.4.8
   flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/images/
-    - assets/animations/

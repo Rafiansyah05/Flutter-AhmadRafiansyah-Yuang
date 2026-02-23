@@ -1,23 +1,49 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'app.dart';
-import 'core/services/local_storage_service.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'app/data/services/storage_service.dart';
+import 'app/routes/app_pages.dart';
+import 'app/routes/app_routes.dart';
+import 'app/themes/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null);
 
-  // Initialize Supabase
-  await Supabase.initialize(
-    url: 'https://vqpzfduxtdcqihjnisic.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZxcHpmZHV4dGRjcWloam5pc2ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3MDQwNjQsImV4cCI6MjA4NzI4MDA2NH0.NCZ25O8MhTUHQQEUBwHVlg5tO5ukRvajXHXXWpOOLRE',
-  );
+  // Inisialisasi SharedPreferences sebelum app jalan
+  final prefs = await SharedPreferences.getInstance();
+  Get.put<StorageService>(StorageService()..initWithPrefs(prefs),
+      permanent: true);
 
-  // Initialize Hive
-  await Hive.initFlutter();
-  await LocalStorageService.init();
+  // Hanya jalankan di mobile, bukan web
+  if (!kIsWeb) {
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
+  }
 
-  runApp(const TheQuis());
+  runApp(const YuangApp());
+}
+
+class YuangApp extends StatelessWidget {
+  const YuangApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      title: 'Yuang',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      initialRoute: AppRoutes.SPLASH,
+      getPages: AppRouter.routes,
+      defaultTransition: Transition.fadeIn,
+    );
+  }
 }
