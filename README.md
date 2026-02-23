@@ -170,6 +170,10 @@ lib/
 - Aplikasi dapat dijalankan di Android, iOS, maupun Chrome
 - Saldo menyesuaikan otomatis saat transaksi ditambah atau dihapus
 
+
+## Vide Penjelasan Aplikasi
+https://drive.google.com/drive/folders/1a4hu2OPJd49s5tmAxcJB0Mk7k8zS6som?usp=sharing
+
 ## Pembuat
 
 AHMAD RAFIANSYAH 
